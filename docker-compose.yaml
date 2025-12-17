@@ -1,12 +1,13 @@
 # Archivo: docker-compose.yaml
-# Version: 3.2 - PRODUCTION STABLE (Healthcheck Fix)
-# Descripción: Versión con healthcheck de PostgreSQL simplificado para máxima robustez.
+# Version: 3.8 - PRODUCTION STABLE (n8n v2 pinned)
+# Descripción: n8n v2 con PostgreSQL healthcheck robusto y servicios desacoplados.
 
 version: '3.8'
 
 services:
   n8n_app:
-    image: docker.n8n.io/n8nio/n8n:latest
+    # 🔒 FIJAMOS MAYOR VERSION (evita bugs de latest en Coolify)
+    image: docker.n8n.io/n8nio/n8n:2.0.3
     container_name: n8n_service
     restart: always
     volumes:
@@ -14,6 +15,9 @@ services:
     depends_on:
       pg_database:
         condition: service_healthy
+    # (Opcional pero recomendado en prod, si no lo tienes ya en Coolify)
+    # environment:
+    #   - N8N_RUNNERS_ENABLED=true
 
   evolution_api:
     image: atendai/evolution-api:latest
@@ -36,9 +40,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      # --- CAMBIO CLAVE ---
-      # Se simplifica el test para comprobar únicamente que el servidor acepta
-      # conexiones para el usuario principal. Es más rápido y fiable.
+      # Healthcheck simple, rápido y confiable
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
       interval: 10s
       timeout: 5s
