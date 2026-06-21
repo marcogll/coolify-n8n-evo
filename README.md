@@ -1,4 +1,4 @@
-# Stack de n8n y Evolution API para Coolify
+# Stack de n8n y Evolution API para 
 ### Versión 3.0 - Segura y Lista para Producción
 
 Este repositorio contiene la configuración de Docker Compose para desplegar un stack completo y unificado con **n8n** y **Evolution API**, utilizando servicios compartidos de PostgreSQL y Redis.
