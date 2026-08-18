@@ -1,5 +1,39 @@
-# Stack de n8n y Evolution API para Coolify
-### Versión 3.0 - Segura y Lista para Producción
+<p align="center">
+  <a href="https://soul23.mx">
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://raw.githubusercontent.com/marcogll/mg_data_storage/refs/heads/main/soul23/logo/soul23_logo_wh.png">
+      <source
+        media="(prefers-color-scheme: light)"
+        srcset="https://raw.githubusercontent.com/marcogll/mg_data_storage/refs/heads/main/soul23/logo/soul23_logo_blk.png">
+      <img
+        src="https://raw.githubusercontent.com/marcogll/mg_data_storage/refs/heads/main/soul23/logo/soul23_logo_blk.png"
+        width="110"
+        alt="Soul:23">
+    </picture>
+  </a>
+</p>
+
+<h1 align="center">Coolify n8n + Evolution API</h1>
+
+<p align="center">
+  Stack Docker Compose de n8n y Evolution API para despliegue robusto y seguro en Coolify, con servicios compartidos de PostgreSQL y Redis.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/n8n-3a3a3a?style=flat-square&logo=n8n&logoColor=white">
+  <img src="https://img.shields.io/badge/Docker-3a3a3a?style=flat-square&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/PostgreSQL-3a3a3a?style=flat-square&logo=postgresql&logoColor=white">
+</p>
+
+---
+
+## Description
+
+Configuración de Docker Compose para desplegar un stack completo y unificado con n8n y Evolution API, utilizando servicios compartidos de PostgreSQL y Redis, diseñado para despliegue robusto y seguro en Coolify vía integración con Git.
+
+Imagen de PostgreSQL personalizada con script de inicialización (sin errores de montaje de volúmenes), sin mapeo de puertos (el proxy de Coolify gestiona tráfico y SSL) y gestión de secretos exclusivamente en la interfaz de Coolify.
 
 Este repositorio contiene la configuración de Docker Compose para desplegar un stack completo y unificado con **n8n** y **Evolution API**, utilizando servicios compartidos de PostgreSQL y Redis.
 
